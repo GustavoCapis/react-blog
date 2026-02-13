@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import api from "./api/posts";
 import Header from "./Header";
 import Home from "./Home";
+import Post from "./Post";
 import Footer from "./Footer";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home posts={posts} />}/>
+        <Route path="/post" element={<Post/>}></Route>
       </Routes>
       <Footer />
     </>

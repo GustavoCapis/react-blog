@@ -57,6 +57,70 @@ article.post {
   border-bottom: #bfd1d6 solid 1px;
 }
 
+.new-post-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.new-post-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.new-post-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* LABEL */
+.new-post-section label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.new-post-section input,
+.new-post-section textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.new-post-section textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+.new-post-section input:focus,
+.new-post-section textarea:focus {
+  border-color: #61dafb;
+}
+
+.new-post-section button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.new-post-section button:hover {
+  background-color: #e8e8e8;
+}
+
+/* Click feedback */
+.new-post-section button:active {
+  transform: scale(0.98);
+}
 
 footer {
   display: flex;
