@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Home from "./Home";
 import Footer from "./Footer";
 import api from "./api/posts";
 import { useState, useEffect } from "react";
@@ -6,6 +7,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [posts, setPosts] = useState([]);
 
+  //Fetch request
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -18,7 +20,7 @@ function App() {
           console.log(error.response.status);
           console.log(error.response.headers);
         } else {
-          //No response or 404 error
+          //No response 
           console.log(`Error: ${error.message}`);
         }
       }
@@ -29,7 +31,7 @@ function App() {
   return (
     <>
       <Header />
-      <section></section>
+      <Home posts={posts} />
       <Footer />
     </>
   );
