@@ -1,8 +1,9 @@
+import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import api from "./api/posts";
 import Header from "./Header";
 import Home from "./Home";
 import Footer from "./Footer";
-import api from "./api/posts";
-import { useState, useEffect } from "react";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -31,7 +32,9 @@ function App() {
   return (
     <>
       <Header />
-      <Home posts={posts} />
+      <Routes>
+        <Route path="/" element={<Home posts={posts} />}/>
+      </Routes>
       <Footer />
     </>
   );
