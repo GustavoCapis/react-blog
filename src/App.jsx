@@ -37,22 +37,25 @@ function App() {
   }, []);
 
   //On form submit
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const id = crypto.randomUUID();
-    const date = format(new Date(), "MMMM dd, yyyy pp");
+    const datetime = format(new Date(), "MMMM dd, yyyy pp");
     const newPost = {
       id,
       title: postTitle,
-      date,
+      datetime,
       body: postBody,
     };
-    setPosts((prev) => [...prev, newPost]);
-    //Clear form after submit
-    setPostTitle("");
-    setPostBody("");
-    //Redirect to home after submit
-    navigate("/");
+    try {
+      const response = await api.post('/posts', newPost)
+      setPosts((prev) => [...prev, response.data]);
+      //Clear form after submit
+      setPostTitle("");
+      setPostBody("");
+      //Redirect to home after submit
+      navigate("/");
+    } catch (error) { console.log(`Error: ${error.message}`)}
   }
 
   return (

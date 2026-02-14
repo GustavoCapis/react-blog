@@ -136,8 +136,6 @@ footer {
   display: flex;
   justify-content: center;
   justify-items: center;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: #3d3333;
   color: white;

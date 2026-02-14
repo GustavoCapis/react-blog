@@ -1,26 +1,46 @@
-{"posts" : [
-  {
-    "id": 1,
-    "title": "Learning REST APIs",
-    "datetime": "September 14, 2026 10:23:11 AM",
-    "body": "This is a new post created to practice CRUD operations using a fake REST API. Working with JSON Server makes it much easier to simulate real backend interactions during development."
-  },
-  {
-    "id": 2,
-    "title": "Axios Makes Life Easier",
-    "datetime": "October 03, 2026 02:17:54 PM",
-    "body": "Using Axios instead of fetch simplifies HTTP requests and improves code readability. Error handling and response parsing become much cleaner compared to native solutions."
-  },
-  {
-    "id": 3,
-    "title": "Why State Management Matters",
-    "datetime": "November 22, 2026 08:41:36 AM",
-    "body": "Managing state properly is one of the most important concepts in React. Understanding how data flows between components helps prevent bugs and improves application scalability."
-  },
-  {
-    "id": 4,
-    "title": "Building Realistic Projects",
-    "datetime": "December 05, 2026 11:59:02 AM",
-    "body": "Creating projects that mimic real-world scenarios is essential for improving frontend skills. Implementing CRUD with REST APIs provides practical experience valued in job interviews."
-  }
-]}
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Learning REST APIs",
+      "datetime": "September 14, 2026 10:23:11 AM",
+      "body": "This is a new post created to practice CRUD operations using a fake REST API. Working with JSON Server makes it much easier to simulate real backend interactions during development."
+    },
+    {
+      "id": "2",
+      "title": "Axios Makes Life Easier",
+      "datetime": "October 03, 2026 02:17:54 PM",
+      "body": "Using Axios instead of fetch simplifies HTTP requests and improves code readability. Error handling and response parsing become much cleaner compared to native solutions."
+    },
+    {
+      "id": "3",
+      "title": "Why State Management Matters",
+      "datetime": "November 22, 2026 08:41:36 AM",
+      "body": "Managing state properly is one of the most important concepts in React. Understanding how data flows between components helps prevent bugs and improves application scalability."
+    },
+    {
+      "id": "4",
+      "title": "Building Realistic Projects",
+      "datetime": "December 05, 2026 11:59:02 AM",
+      "body": "Creating projects that mimic real-world scenarios is essential for improving frontend skills. Implementing CRUD with REST APIs provides practical experience valued in job interviews."
+    },
+    {
+      "id": "782bc56f-f338-436c-ae0c-1d69c9e61d23",
+      "title": "Beyoncé is the queen of music",
+      "datetime": "February 14, 2026 8:33:47 PM",
+      "body": "Beyoncé is everything!"
+    },
+    {
+      "id": "eaf7100d-868d-467e-a8fc-019b441280f7",
+      "title": "test",
+      "datetime": "February 14, 2026 8:34:07 PM",
+      "body": "test"
+    },
+    {
+      "id": "f4622969-8cf4-4ece-b965-fc41adc07d4d",
+      "title": "oi",
+      "datetime": "February 14, 2026 8:34:14 PM",
+      "body": "oi"
+    }
+  ]
+}
