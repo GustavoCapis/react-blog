@@ -7,7 +7,10 @@ import Post from "./Post";
 import Footer from "./Footer";
 
 function App() {
+  //States
   const [posts, setPosts] = useState([]);
+  const [postTitle, setPostTitle] = useState("")
+  const [postBody, setPostBody] = useState("")
 
   //Fetch request
   useEffect(() => {
@@ -29,13 +32,23 @@ function App() {
     };
     fetchPosts();
   }, []);
-  console.log(posts);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home posts={posts} />}/>
-        <Route path="/post" element={<Post/>}></Route>
+        <Route path="/post" 
+        element={<Post 
+        postTitle={postTitle} 
+        postBody={postBody}
+        setPostTitle={setPostTitle}
+        setPostBody={setPostBody}
+        />}></Route>
       </Routes>
       <Footer />
     </>

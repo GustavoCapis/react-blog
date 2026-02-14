@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -5,6 +7,7 @@
 body {
   margin: 0;
   background-color: rgb(220, 243, 245);
+  font-family: 'Inter', sans-serif;
 }
 
 header {
@@ -35,19 +38,25 @@ nav {
   align-items: center;
   background-color: #3d3333;
   height: 50px;
+  padding: 0 40px;
+  gap: 24px;
 }
 
 nav > input {
-  padding: 4px;
+  padding: 6px 10px;
   margin-left: 40px;
   width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
 }
 
 nav > ul {
   display: flex;
-  gap: 80px;
+  align-items: center;
+  gap: 50px;
   list-style: none;
-  margin-right: 40rem;
+  margin: 0;
   padding: 0;
   color: white;
   font-size: 1.5rem;
@@ -55,6 +64,7 @@ nav > ul {
 
 article.post {
   border-bottom: #bfd1d6 solid 1px;
+  padding-left: 16px;
 }
 
 .new-post-section {
