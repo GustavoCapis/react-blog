@@ -73,23 +73,25 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home 
-        handleDelete={handleDelete}
-        posts={posts} />} />
-        <Route
-          path="/post"
-          element={
-            <Post
-              postTitle={postTitle}
-              postBody={postBody}
-              setPostTitle={setPostTitle}
-              setPostBody={setPostBody}
-              handleSubmit={handleSubmit}
-            />
-          }
-        ></Route>
-      </Routes>
+      <main className="page-content">
+        <Routes>
+          <Route path="/" element={<Home
+          handleDelete={handleDelete}
+          posts={posts} />} />
+          <Route
+            path="/post"
+            element={
+              <Post
+                postTitle={postTitle}
+                postBody={postBody}
+                setPostTitle={setPostTitle}
+                setPostBody={setPostBody}
+                handleSubmit={handleSubmit}
+              />
+            }
+          ></Route>
+        </Routes>
+      </main>
       <Footer />
     </>
   );
