@@ -6,6 +6,9 @@ export default function Home(props) {
           <h2 className="post-title">{post.title}</h2>
           <small className="post-datetime">{post.datetime}</small>
           <p className="post-content">{post.body}</p>
+          <button onClick={() => props.handleDelete(post.id)} className="delete-btn">
+            Delete
+          </button>
         </article>
       ))}
     </section>

@@ -15,7 +15,7 @@ function App() {
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
 
-  //Fetch request
+  //Fetch request (GET request)
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -36,7 +36,7 @@ function App() {
     fetchPosts();
   }, []);
 
-  //On form submit
+  //On form submit (POST request)
   async function handleSubmit(e) {
     e.preventDefault();
     const id = crypto.randomUUID();
@@ -48,21 +48,35 @@ function App() {
       body: postBody,
     };
     try {
-      const response = await api.post('/posts', newPost)
+      const response = await api.post("/posts", newPost);
       setPosts((prev) => [...prev, response.data]);
       //Clear form after submit
       setPostTitle("");
       setPostBody("");
       //Redirect to home after submit
       navigate("/");
-    } catch (error) { console.log(`Error: ${error.message}`)}
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    }
+  }
+
+  //Delete post (DELETE request)
+  async function handleDelete(id) {
+    try {
+      await api.delete(`/posts/${id}`);
+      setPosts((prev) => prev.filter((post)=> post.id !== id));
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    }
   }
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home posts={posts} />} />
+        <Route path="/" element={<Home 
+        handleDelete={handleDelete}
+        posts={posts} />} />
         <Route
           path="/post"
           element={

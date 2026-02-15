@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
   margin: 0;
   background-color: rgb(220, 243, 245);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 header {
@@ -48,7 +48,6 @@ nav > input {
   width: 250px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  
 }
 
 nav > ul {
@@ -65,6 +64,8 @@ nav > ul {
 article.post {
   border-bottom: #bfd1d6 solid 1px;
   padding-left: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 .new-post-section {
@@ -130,6 +131,37 @@ article.post {
 /* Click feedback */
 .new-post-section button:active {
   transform: scale(0.98);
+}
+
+.delete-btn {
+  align-self: flex-end;
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: rgba(220, 38, 38, 0.08);
+  color: #b91c1c;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+  background-color 0.15s ease,
+  transform 0.08s ease,
+  border-color 0.15s ease;
+  margin: 10px;
+}
+
+.delete-btn:hover {
+  background: rgba(220, 38, 38, 0.14);
+  border-color: rgba(220, 38, 38, 0.55);
+}
+
+.delete-btn:active {
+  transform: scale(0.98);
+}
+
+.delete-btn:focus-visible {
+  outline: 3px solid rgba(220, 38, 38, 0.35);
+  outline-offset: 2px;
 }
 
 footer {
