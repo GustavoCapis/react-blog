@@ -5,6 +5,7 @@ import api from "./api/posts";
 import Header from "./Header";
 import Home from "./Home";
 import Post from "./Post";
+import EditPost from "./EditPost";
 import Footer from "./Footer";
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
+  const [editTitle, setEditTitle] = useState("");
+  const [editBody, setEditBody] = useState("");
 
   //Fetch request (GET request)
   useEffect(() => {
@@ -64,7 +67,29 @@ function App() {
   async function handleDelete(id) {
     try {
       await api.delete(`/posts/${id}`);
-      setPosts((prev) => prev.filter((post)=> post.id !== id));
+      setPosts((prev) => prev.filter((post) => post.id !== id));
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    }
+  }
+
+  //Edit post (UPDATE request)
+  async function handleEdit(id) {
+    const datetime = format(new Date(), "MMMM dd, yyyy pp");
+    const updatedPost = {
+      id,
+      title: editTitle,
+      datetime,
+      body: editBody,
+    };
+    try {
+      const response = await api.put(`/posts/${id}`, updatedPost);
+      setPosts((prev) =>
+        prev.map((post) => (post.id === id ? { ...response.data } : post)),
+      );
+      setEditTitle("");
+      setEditBody("");
+      navigate("/");
     } catch (error) {
       console.log(`Error: ${error.message}`);
     }
@@ -75,9 +100,13 @@ function App() {
       <Header />
       <main className="page-content">
         <Routes>
-          <Route path="/" element={<Home
-          handleDelete={handleDelete}
-          posts={posts} />} />
+          <Route
+            path="/"
+            element={<Home 
+              handleDelete={handleDelete} 
+              posts={posts} 
+              />}
+          />
           <Route
             path="/post"
             element={
@@ -90,6 +119,17 @@ function App() {
               />
             }
           ></Route>
+          <Route path="/edit/:id"
+           element={
+           <EditPost 
+           posts={posts}
+           editTitle={editTitle}
+           editBody={editBody}
+           setEditTitle={setEditTitle}
+           setEditBody={setEditBody}
+           handleEdit={handleEdit}
+           />}
+           ></Route>
         </Routes>
       </main>
       <Footer />
