@@ -52,7 +52,7 @@ function App() {
     };
     try {
       const response = await api.post("/posts", newPost);
-      setPosts((prev) => [...prev, response.data]);
+      setPosts((prev) => [response.data, ...prev]);
       //Clear form after submit
       setPostTitle("");
       setPostBody("");
