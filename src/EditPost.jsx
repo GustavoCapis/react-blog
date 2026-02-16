@@ -42,7 +42,7 @@ export default function EditPost(props) {
           </form>
         </>
       )}
-      {!editTitle && (
+      {!props.editTitle && (
         <>
           <h2>Post not found ☹️</h2>
           <p>Sorry, the post you've been looking for doesn't exist.</p>

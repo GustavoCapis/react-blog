@@ -7,13 +7,15 @@ export default function Home(props) {
     <section className="posts">
       {props.posts.map((post) => (
         <article key={post.id} className="post">
-          <h2 className="post-title">{post.title}</h2>
-          <button
-            className="edit-btn"
-            onClick={() => navigate(`/edit/${post.id}`)}
-          >
-            Edit
-          </button>
+          <div className="post-header">
+            <h2>{post.title}</h2>
+            <button
+              className="edit-btn"
+              onClick={() => navigate(`/edit/${post.id}`)}
+            >
+              Edit
+            </button>
+          </div>
           <small className="post-datetime">{post.datetime}</small>
           <p className="post-content">{post.body}</p>
           <button
