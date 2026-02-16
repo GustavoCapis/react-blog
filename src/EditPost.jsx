@@ -14,7 +14,7 @@ export default function EditPost(props) {
 
   return (
     <section className="new-post-section">
-      {post && (
+      {post ? (
         <>
           <h2>Edit Post</h2>
           <form
@@ -41,8 +41,7 @@ export default function EditPost(props) {
             <button type="submit">Submit</button>
           </form>
         </>
-      )}
-      {!post && (
+      ) : (
         <>
           <h2>Post not found ☹️</h2>
           <p>Sorry, the post you've been looking for doesn't exist.</p>
