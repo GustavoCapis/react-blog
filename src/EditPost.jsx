@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function EditPost(props) {
   const { id } = useParams();
@@ -40,6 +40,15 @@ export default function EditPost(props) {
             ></textarea>
             <button type="submit">Submit</button>
           </form>
+        </>
+      )}
+      {!editTitle && (
+        <>
+          <h2>Post not found ☹️</h2>
+          <p>Sorry, the post you've been looking for doesn't exist.</p>
+          <p>
+            <Link to="/"> Go back to Homepage</Link>
+          </p>
         </>
       )}
     </section>
