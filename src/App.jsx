@@ -17,6 +17,13 @@ function App() {
   const [postBody, setPostBody] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
+  const [searchPost, setSearchPost] = useState("");
+
+  //Derived state
+  //Render based on search value
+  const filteredPosts = posts.filter(
+    (post) => post.title.toLowerCase().includes(searchPost.toLowerCase()) || post.body.toLowerCase().includes(searchPost.toLowerCase()),
+  );
 
   //Fetch request (GET request)
   useEffect(() => {
@@ -100,14 +107,18 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header 
+      searchPost={searchPost} 
+      setSearchPost={setSearchPost} 
+      />
       <main className="page-content">
         <Routes>
           <Route
             path="/"
-            element={<Home 
+            element={
+            <Home 
               handleDelete={handleDelete} 
-              posts={posts} 
+              posts={filteredPosts} 
               />}
           />
           <Route
@@ -122,17 +133,19 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/edit/:id"
-           element={
-           <EditPost 
-           posts={posts}
-           editTitle={editTitle}
-           editBody={editBody}
-           setEditTitle={setEditTitle}
-           setEditBody={setEditBody}
-           handleEdit={handleEdit}
-           />}
-           ></Route>
+          <Route
+            path="/edit/:id"
+            element={
+              <EditPost
+                posts={posts}
+                editTitle={editTitle}
+                editBody={editBody}
+                setEditTitle={setEditTitle}
+                setEditBody={setEditBody}
+                handleEdit={handleEdit}
+              />
+            }
+          ></Route>
         </Routes>
       </main>
       <Footer />
