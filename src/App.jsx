@@ -42,6 +42,9 @@ function App() {
   //On form submit (POST request)
   async function handleSubmit(e) {
     e.preventDefault();
+    //validate post
+    if (!postTitle.trim() || !postBody.trim()) return;
+    //create data
     const id = crypto.randomUUID();
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
     const newPost = {

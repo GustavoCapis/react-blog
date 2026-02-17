@@ -30,6 +30,7 @@ export default function EditPost(props) {
               id="title"
               value={props.editTitle}
               onChange={(e) => props.setEditTitle(e.target.value)}
+              required
             />
             <label htmlFor="body">Post:</label>
             <textarea
@@ -37,8 +38,14 @@ export default function EditPost(props) {
               onChange={(e) => props.setEditBody(e.target.value)}
               name="body"
               id="body"
+              required
             ></textarea>
-            <button type="submit">Submit</button>
+            <button
+              disabled={!props.editTitle.trim() || !props.editBody.trim()}
+              type="submit"
+            >
+              Submit
+            </button>
           </form>
         </>
       ) : (

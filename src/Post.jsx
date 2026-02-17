@@ -10,15 +10,22 @@ export default function Post(props) {
           id="title"
           value={props.postTitle}
           onChange={(e) => props.setPostTitle(e.target.value)}
+          required
         />
         <label htmlFor="body">Post:</label>
         <textarea
           value={props.postBody}
           onChange={(e) => props.setPostBody(e.target.value)}
+          required
           name="body"
           id="body"
         ></textarea>
-        <button type="submit">Submit</button>
+        <button
+          disabled={!props.postTitle.trim() || !props.postBody.trim()}
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </section>
   );
