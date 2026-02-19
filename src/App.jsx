@@ -2,11 +2,11 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import api from "./api/posts";
-import Header from "./Header";
-import Home from "./Home";
-import Post from "./Post";
-import EditPost from "./EditPost";
-import Footer from "./Footer";
+import Header from "./Components/Header";
+import Home from "./Pages/Home";
+import Post from "./Pages/Post";
+import EditPost from "./Pages/EditPost";
+import Footer from "./Components/Footer";
 
 function App() {
   //Redirect to home after submit
@@ -22,7 +22,9 @@ function App() {
   //Derived state
   //Render based on search value
   const filteredPosts = posts.filter(
-    (post) => post.title.toLowerCase().includes(searchPost.toLowerCase()) || post.body.toLowerCase().includes(searchPost.toLowerCase()),
+    (post) =>
+      post.title.toLowerCase().includes(searchPost.toLowerCase()) ||
+      post.body.toLowerCase().includes(searchPost.toLowerCase()),
   );
 
   //Fetch request (GET request)
@@ -107,19 +109,12 @@ function App() {
 
   return (
     <>
-      <Header 
-      searchPost={searchPost} 
-      setSearchPost={setSearchPost} 
-      />
+      <Header searchPost={searchPost} setSearchPost={setSearchPost} />
       <main className="page-content">
         <Routes>
           <Route
             path="/"
-            element={
-            <Home 
-              handleDelete={handleDelete} 
-              posts={filteredPosts} 
-              />}
+            element={<Home handleDelete={handleDelete} posts={filteredPosts} />}
           />
           <Route
             path="/post"
