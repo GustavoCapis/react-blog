@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar({ searchPost, setSearchPost }) {
+export default function Navbar({ searchPost, onSearchChange }) {
   return (
     <nav className="navbar">
       <input
@@ -9,7 +9,7 @@ export default function Navbar({ searchPost, setSearchPost }) {
         placeholder="Search Posts"
         value={searchPost}
         onChange={(e) => {
-          setSearchPost(e.target.value);
+          onSearchChange(e.target.value);
         }}
       />
       <ul>
