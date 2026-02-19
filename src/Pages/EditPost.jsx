@@ -1,16 +1,23 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-export default function EditPost({posts, editTitle, editBody, setEditTitle, setEditBody, handleEdit}) {
+export default function EditPost({
+  posts,
+  editTitle,
+  editBody,
+  onEditTitle,
+  onEditBody,
+  onSubmitEdit,
+}) {
   const { id } = useParams();
   const post = posts.find((post) => id === post.id);
 
   useEffect(() => {
     if (post) {
-      setEditTitle(post.title);
-      setEditBody(post.body);
+      onEditTitle(post.title);
+      onEditBody(post.body);
     }
-  }, [post, setEditTitle, setEditBody]);
+  }, [post, onEditTitle, onEditBody]);
 
   return (
     <section className="new-post-section">
@@ -20,7 +27,7 @@ export default function EditPost({posts, editTitle, editBody, setEditTitle, setE
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              handleEdit(id);
+              onSubmitEdit(id);
             }}
           >
             <label htmlFor="title">Title:</label>
@@ -29,13 +36,13 @@ export default function EditPost({posts, editTitle, editBody, setEditTitle, setE
               name="title"
               id="title"
               value={editTitle}
-              onChange={(e) => setEditTitle(e.target.value)}
+              onChange={(e) => onEditTitle(e.target.value)}
               required
             />
             <label htmlFor="body">Post:</label>
             <textarea
               value={editBody}
-              onChange={(e) => setEditBody(e.target.value)}
+              onChange={(e) => onEditBody(e.target.value)}
               name="body"
               id="body"
               required

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Home({posts, handleDelete}) {
+export default function Home({ posts, handleDelete: onDelete }) {
   const navigate = useNavigate();
 
   return (
@@ -18,10 +18,7 @@ export default function Home({posts, handleDelete}) {
           </div>
           <small className="post-datetime">{post.datetime}</small>
           <p className="post-content">{post.body}</p>
-          <button
-            onClick={() => handleDelete(post.id)}
-            className="delete-btn"
-          >
+          <button onClick={() => onDelete(post.id)} className="delete-btn">
             Delete
           </button>
         </article>

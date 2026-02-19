@@ -109,12 +109,12 @@ function App() {
 
   return (
     <>
-      <Header searchPost={searchPost} setSearchPost={setSearchPost} />
+      <Header searchPost={searchPost} onSearchChange={setSearchPost} />
       <main className="page-content">
         <Routes>
           <Route
             path="/"
-            element={<Home handleDelete={handleDelete} posts={filteredPosts} />}
+            element={<Home onDelete={handleDelete} posts={filteredPosts} />}
           />
           <Route
             path="/post"
@@ -122,9 +122,9 @@ function App() {
               <Post
                 postTitle={postTitle}
                 postBody={postBody}
-                setPostTitle={setPostTitle}
-                setPostBody={setPostBody}
-                handleSubmit={handleSubmit}
+                onTitleChange={setPostTitle}
+                onBodyChange={setPostBody}
+                onSubmit={handleSubmit}
               />
             }
           ></Route>
@@ -135,9 +135,9 @@ function App() {
                 posts={posts}
                 editTitle={editTitle}
                 editBody={editBody}
-                setEditTitle={setEditTitle}
-                setEditBody={setEditBody}
-                handleEdit={handleEdit}
+                onEditTitle={setEditTitle}
+                onEditBody={setEditBody}
+                onSubmitEdit={handleEdit}
               />
             }
           ></Route>
