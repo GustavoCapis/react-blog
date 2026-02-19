@@ -1,27 +1,27 @@
-export default function Post(props) {
+export default function Post({postTitle, postBody, setPostTitle, setPostBody, handleSubmit}) {
   return (
     <section className="new-post-section">
       <h2>New Post</h2>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input
           type="text"
           name="title"
           id="title"
-          value={props.postTitle}
-          onChange={(e) => props.setPostTitle(e.target.value)}
+          value={postTitle}
+          onChange={(e) => setPostTitle(e.target.value)}
           required
         />
         <label htmlFor="body">Post:</label>
         <textarea
-          value={props.postBody}
-          onChange={(e) => props.setPostBody(e.target.value)}
+          value={postBody}
+          onChange={(e) => setPostBody(e.target.value)}
           required
           name="body"
           id="body"
         ></textarea>
         <button
-          disabled={!props.postTitle.trim() || !props.postBody.trim()}
+          disabled={!postTitle.trim() || !postBody.trim()}
           type="submit"
         >
           Submit

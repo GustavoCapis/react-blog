@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Home(props) {
+export default function Home({posts, handleDelete}) {
   const navigate = useNavigate();
 
   return (
     <section className="posts">
-      {props.posts.map((post) => (
+      {posts.map((post) => (
         <article key={post.id} className="post">
           <div className="post-header">
             <h2>{post.title}</h2>
@@ -19,7 +19,7 @@ export default function Home(props) {
           <small className="post-datetime">{post.datetime}</small>
           <p className="post-content">{post.body}</p>
           <button
-            onClick={() => props.handleDelete(post.id)}
+            onClick={() => handleDelete(post.id)}
             className="delete-btn"
           >
             Delete

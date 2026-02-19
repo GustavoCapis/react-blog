@@ -1,9 +1,8 @@
 import reactLogo from "./assets/react.svg";
 import Navbar from "./Navbar";
 
-export default function Header(props) {
-  const searchPost = props.searchPost
-  const setSearchPost = props.setSearchPost
+export default function Header({searchPost, setSearchPost}) {
+
   return (
     <>
       <header className="header">

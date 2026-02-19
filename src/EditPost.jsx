@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-export default function EditPost(props) {
+export default function EditPost({posts, editTitle, editBody, setEditTitle, setEditBody, handleEdit}) {
   const { id } = useParams();
-  const post = props.posts.find((post) => id === post.id);
+  const post = posts.find((post) => id === post.id);
 
   useEffect(() => {
     if (post) {
-      props.setEditTitle(post.title);
-      props.setEditBody(post.body);
+      setEditTitle(post.title);
+      setEditBody(post.body);
     }
-  }, [post, props.setEditTitle, props.setEditBody]);
+  }, [post, setEditTitle, setEditBody]);
 
   return (
     <section className="new-post-section">
@@ -20,7 +20,7 @@ export default function EditPost(props) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              props.handleEdit(id);
+              handleEdit(id);
             }}
           >
             <label htmlFor="title">Title:</label>
@@ -28,20 +28,20 @@ export default function EditPost(props) {
               type="text"
               name="title"
               id="title"
-              value={props.editTitle}
-              onChange={(e) => props.setEditTitle(e.target.value)}
+              value={editTitle}
+              onChange={(e) => setEditTitle(e.target.value)}
               required
             />
             <label htmlFor="body">Post:</label>
             <textarea
-              value={props.editBody}
-              onChange={(e) => props.setEditBody(e.target.value)}
+              value={editBody}
+              onChange={(e) => setEditBody(e.target.value)}
               name="body"
               id="body"
               required
             ></textarea>
             <button
-              disabled={!props.editTitle.trim() || !props.editBody.trim()}
+              disabled={!editTitle.trim() || !editBody.trim()}
               type="submit"
             >
               Submit
