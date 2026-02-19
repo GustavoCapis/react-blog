@@ -1,4 +1,4 @@
-import reactLogo from "./assets/react.svg";
+import reactLogo from "../assets/react.svg";
 import Navbar from "./Navbar";
 
 export default function Header({ searchPost, onSearchChange }) {
